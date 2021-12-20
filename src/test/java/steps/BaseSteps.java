@@ -7,7 +7,9 @@ import org.aeonbits.owner.ConfigFactory;
 import util.ProjectProperties;
 
 public abstract class BaseSteps {
-    private static final String API_URL = getProjectProperties().apiUrl();
+    protected static final String API_URL = getProjectProperties().apiUrl();
+    protected static final String LOGIN = getProjectProperties().apiLogin();
+    protected static final String PASSWORD = getProjectProperties().apiPassword();
 
     /** Передает параметры из файла Project.properties */
     static ProjectProperties getProjectProperties() {

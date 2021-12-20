@@ -2,8 +2,7 @@ package tests;
 
 import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Test;
-import steps.DbConnectionSteps;
-import steps.FormResponseSteps;
+import steps.GetApiRequestStatusCodeSteps;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -12,7 +11,7 @@ public class StatusCode {
 
     @Test
     public void dbConnectionReturnStatusCodeOkTest() {
-        int statusCode = DbConnectionSteps.getDbConnectionStatusCode();
+        int statusCode = GetApiRequestStatusCodeSteps.getDbConnectionStatusCode();
         assertThat(statusCode).isEqualTo(200);
         log.info("GET запрос /dbconnection возвращает статус код: " + statusCode);
     }
@@ -24,7 +23,7 @@ public class StatusCode {
 
     @Test
     public void getFormFiltersReturnStatusCodeOkTest() {
-        int statusCode = FormResponseSteps.getFormResponseStatusCode();
+        int statusCode = GetApiRequestStatusCodeSteps.getFormResponseStatusCode();
         assertThat(statusCode).isEqualTo(200);
         log.info("GET запрос /forms возвращает статус код: " + statusCode);
     }
