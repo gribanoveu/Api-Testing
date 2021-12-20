@@ -1,19 +1,13 @@
-package steps;
+package example;
 
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
-import org.aeonbits.owner.ConfigFactory;
 import org.json.JSONObject;
-import util.ProjectProperties;
 
-public class Auth {
-    private static ProjectProperties getProjectProperties() {
-        return ConfigFactory.newInstance().create(ProjectProperties.class, System.getProperties());
-    }
-
-    private static final String URL = getProjectProperties().apiUrl();
-    private static final String USERNAME = getProjectProperties().userName();
-    private static final String PASSWORD = getProjectProperties().userPassword();
+public class AuthPostRequestJson {
+    private static final String URL = "https://fakestoreapi.com/auth/";
+    private static final String USERNAME = "mor_2314";
+    private static final String PASSWORD = "83r5^_";
 
     public static String getTokenAfterLogin() {
         JSONObject requestBody = new JSONObject();
@@ -28,5 +22,4 @@ public class Auth {
                 then().statusCode(200).
                 extract().path("token");
     }
-
 }

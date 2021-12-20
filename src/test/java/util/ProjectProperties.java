@@ -8,9 +8,9 @@ public interface ProjectProperties extends Config {
     @Key("apiUrl")
     String apiUrl();
 
-    @Key("userName")
-    String userName();
+    @Key("apiLogin")
+    String apiLogin();
 
-    @Key("userPassword")
-    String userPassword();
+    @Key("apiPassword")
+    String apiPassword();
 }
