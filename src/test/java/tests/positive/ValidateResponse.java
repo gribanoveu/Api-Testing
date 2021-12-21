@@ -1,23 +1,23 @@
-package tests;
+package tests.positive;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.testng.annotations.Test;
-import steps.GetApiRequestValidateSchemaSteps;
+import steps.ValidateSchemaSteps;
 
 
 public class ValidateResponse {
 
-    @Test(groups = "SCHEMA")
+    @Test(groups = { "SMOKE", "dbconnection" })
     @Feature("Подтвердить загрузку ответа")
     @Story("TA-1Б-1")
     @Description("Авторизация в системе с корректным логином и паролем возвращает sessionID")
     public void getDbConnectionReturnSessionIdTest() {
-        GetApiRequestValidateSchemaSteps.dbConnectionReturnSessionId();
+        ValidateSchemaSteps.dbConnectionReturnSessionId();
     }
 
-    @Test(groups = "SCHEMA")
+    @Test(groups = { "dbconnection" })
     @Feature("Подтвердить загрузку ответа")
     @Story("TA-1Б-2")
     @Description(" Структура ответа JSON для получения sessionID соответствует модели данных")
@@ -25,7 +25,7 @@ public class ValidateResponse {
         // TODO
     }
 
-    @Test(groups = "SCHEMA")
+    @Test(groups = { "forms" })
     @Feature("Подтвердить загрузку ответа")
     @Story("TA-1Б-3")
     @Description("Структура ответа JSON для получения списка форм соответствует модели данных")
@@ -33,7 +33,7 @@ public class ValidateResponse {
         // TODO
     }
 
-    @Test(groups = "SCHEMA")
+    @Test(groups = { "form" })
     @Feature("Подтвердить загрузку ответа")
     @Story("TA-1Б-4")
     @Description("Структура ответа JSON для получения формы по id соответствует модели данных")
@@ -41,7 +41,7 @@ public class ValidateResponse {
         // TODO
     }
 
-    @Test(groups = "SCHEMA")
+    @Test(groups = { "formfilters" })
     @Feature("Подтвердить загрузку ответа")
     @Story("TA-1Б-5")
     @Description("Структура ответа JSON для получения фильтров формы по id соответствует модели данных")
@@ -49,7 +49,7 @@ public class ValidateResponse {
         // TODO
     }
 
-    @Test(groups = "SCHEMA")
+    @Test(groups = { "saveForm" })
     @Feature("Подтвердить загрузку ответа")
     @Story("TA-1Б-6")
     @Description("Структура ответа JSON после POST запроса с JSON-обьектом возвращает " +

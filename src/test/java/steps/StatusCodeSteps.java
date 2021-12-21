@@ -5,11 +5,11 @@ import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import util.RestWrapper;
 
-public class GetApiRequestStatusCodeSteps extends BaseSteps {
+public class StatusCodeSteps extends RestWrapper {
     private static final String SESSION_ID = DbConnectionSteps.getDbConnectionAndGetSessionId();
     private static final String FORM_ID = "1";
-
     private static final RequestSpecification API_PATH_FORMS = getReqSpec("/forms");
     private static final RequestSpecification API_PATH_DBCONNECTION = getReqSpec("/dbconnection");
     private static final RequestSpecification API_PATH_FORM = getReqSpec("/form");
@@ -19,9 +19,10 @@ public class GetApiRequestStatusCodeSteps extends BaseSteps {
     @Step("GET запрос '/dbconnection'. Запрос статус кода")
     public static int getDbConnectionStatusCode() {
         return RestAssured.
-                given().spec(API_PATH_DBCONNECTION).
+                given().spec(API_PATH_DBCONNECTION).log().uri().
                 when().get("?login=" + LOGIN + "&password=" + PASSWORD).
-                then().extract().statusCode();
+                then().log().body().
+                extract().statusCode();
     }
 
     @Step("GET запрос '/forms'. Запрос статус кода")

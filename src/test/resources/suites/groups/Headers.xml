@@ -4,11 +4,11 @@
     <test name="Request headers">
         <groups>
             <run>
-                <include name="HEADERS" />
+                <include name="headers" />
             </run>
         </groups>
         <classes>
-            <class name="tests.ValidateHeaders" />
+            <class name="tests.positive.ValidateHeaders" />
         </classes>
     </test>
 </suite>

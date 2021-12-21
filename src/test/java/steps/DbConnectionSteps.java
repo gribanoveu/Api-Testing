@@ -1,13 +1,11 @@
 package steps;
 
 import io.qameta.allure.Step;
-import models.SessionIdPojo;
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
+import util.RestWrapper;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-public class DbConnectionSteps extends BaseSteps {
+public class DbConnectionSteps extends RestWrapper {
     private static final RequestSpecification API_PATH = getReqSpec("/dbconnection");
 
     @Step("GET запрос '/dbconnection'. Вернуть sessionID")
