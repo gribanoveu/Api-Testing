@@ -18,7 +18,7 @@ public class ValidateHeaders {
     @Test(groups = "HEADERS")
     @Feature("Проверить заголовки")
     @Story("TA-1В-2")
-    @Description("Заголовки ответа на GET запрос списка форм ссответствуют ожидаемым")
+    @Description("Заголовки ответа на GET запрос списка форм сответствуют ожидаемым")
     public void getFormsValidateHeaders() {
         // TODO
     }
