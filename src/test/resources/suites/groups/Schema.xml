@@ -4,7 +4,7 @@
     <test name="Request headers">
         <groups>
             <run>
-                <include name="SCHEMA" />
+                <include name="schema" />
             </run>
         </groups>
         <classes>

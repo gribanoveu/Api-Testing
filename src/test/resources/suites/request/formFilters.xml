@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="dbconnection">
-    <test name="dbconnection request positive tests">
+    <test name="formfilters request">
         <groups>
             <run>
-                <include name="dbconnection" />
+                <include name="formfilters" />
             </run>
         </groups>
         <classes>
