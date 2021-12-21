@@ -20,7 +20,7 @@
 
         <!-- TESTNG  -->
         <!-- Указанный файл запускается автоматически при mvn clean test  -->
-        <suiteXml>ApiSuite</suiteXml>
+        <suiteXml>Smoke</suiteXml>
 
         <!-- DEPENDENCIES -->
         <testng.version>7.4.0</testng.version>
