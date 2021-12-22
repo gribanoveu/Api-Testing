@@ -5,15 +5,13 @@ import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 import lombok.extern.slf4j.Slf4j;
 import models.SessionIdPojo;
-import org.hamcrest.Matcher;
 import util.RestWrapper;
 
-import java.util.Collection;
 import java.util.List;
 
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalTo;
 
 @Slf4j
 public class ValidateResponseSteps extends RestWrapper {
