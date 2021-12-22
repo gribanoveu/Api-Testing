@@ -2,10 +2,11 @@ package steps;
 
 import io.qameta.allure.Step;
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import util.RestWrapper;
+
+import java.io.File;
 
 public class StatusCodeSteps extends RestWrapper {
     private static final String SESSION_ID = DbConnectionSteps.getDbConnectionAndGetSessionId();
@@ -51,18 +52,14 @@ public class StatusCodeSteps extends RestWrapper {
 
     @Step("POST запрос '/saveForm'. Запрос статус кода")
     public static int postSaveFormResponseStatusCode() {
-        JSONArray jsonArray = new JSONArray();
+        File JSONFormChanges = new File("src/test/resources/jsons/send/JSONFormChanges.json");
 
-        // TODO: Нужен передаваемый JSON обьект JSONFormChanges
-
-        JSONObject requestBody = new JSONObject();
-        requestBody.put("username", "USERNAME");
-        requestBody.put("password", "PASSWORD");
-
-        RequestSpecification request = RestAssured.given().spec(API_PATH_SAVE_FORM).log().uri().
+        RequestSpecification request = RestAssured.given().
+                contentType(ContentType.JSON).
+                spec(API_PATH_SAVE_FORM).log().uri().
                 header("Content-Type", "application/json").
                 header("sessionID", SESSION_ID).
-                body(requestBody.toString());
+                body(JSONFormChanges).log().body();
 
         return request.when().post("?formid=" + FORM_ID).
                 then().statusCode(200).

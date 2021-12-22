@@ -3,10 +3,14 @@ package tests.positive;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Test;
-import steps.ValidateSchemaSteps;
+import steps.ValidateResponseSteps;
 
+import java.util.LinkedList;
+import java.util.List;
 
+@Slf4j
 public class ValidateResponse {
 
     @Test(groups = { "SMOKE", "dbconnection" })
@@ -14,7 +18,7 @@ public class ValidateResponse {
     @Story("TA-1Б-1")
     @Description("Авторизация в системе с корректным логином и паролем возвращает sessionID")
     public void getDbConnectionReturnSessionIdTest() {
-        ValidateSchemaSteps.dbConnectionReturnSessionId();
+        ValidateResponseSteps.dbConnectionReturnSessionId();
     }
 
     @Test(groups = { "dbconnection" })
@@ -22,7 +26,8 @@ public class ValidateResponse {
     @Story("TA-1Б-2")
     @Description(" Структура ответа JSON для получения sessionID соответствует модели данных")
     public void getDbConnectionValidateSchemaTest() {
-        // TODO
+        ValidateResponseSteps.getDbConnectionValidateSchema();
+        log.info("Схема запроса /dbconnection совпадает с ожидаемой AUTH_SHEMA.json");
     }
 
     @Test(groups = { "forms" })
@@ -30,7 +35,13 @@ public class ValidateResponse {
     @Story("TA-1Б-3")
     @Description("Структура ответа JSON для получения списка форм соответствует модели данных")
     public void getFormsValidateSchemaTest() {
-        // TODO
+        List<String> names = new LinkedList<String>();
+        names.add("01. Параметры");
+        names.add("02. Выручка");
+        names.add("03. ФОТ ПП");
+        names.add("04. Распределение расходов");
+        names.add("06. Анализ");
+        ValidateResponseSteps.getFormsValidateSchema(names);
     }
 
     @Test(groups = { "form" })
