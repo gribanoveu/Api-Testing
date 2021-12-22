@@ -20,7 +20,7 @@
 
         <!-- TESTNG  -->
         <!-- Указанный файл запускается автоматически при mvn clean test  -->
-        <suiteXml>Smoke</suiteXml>
+        <suiteXml>all_requests</suiteXml>
 
         <!-- DEPENDENCIES -->
         <testng.version>7.4.0</testng.version>
@@ -140,7 +140,7 @@
                     <!-- для указания конкретного набора mvn clean test -DsuiteXml=EdgeTestSuite  -->
                     <!-- ! без указания .xml -->
                     <suiteXmlFiles>
-                        <suiteXml>ssrc/test/resources/suites/groups/${suiteXml}.xml</suiteXml>
+                        <suiteXml>src/test/resources/suites/request/${suiteXml}.xml</suiteXml>
                     </suiteXmlFiles>
                     <systemProperties>
                         <property>

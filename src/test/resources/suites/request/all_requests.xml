@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Suites">
+    <suite-files>
+        <suite-file path="dbconnection.xml" />
+        <suite-file path="form.xml" />
+        <suite-file path="forms.xml" />
+        <suite-file path="formFilters.xml" />
+        <suite-file path="saveForm.xml" />
+    </suite-files>
+</suite>
