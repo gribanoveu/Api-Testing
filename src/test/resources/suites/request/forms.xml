@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="GET запрос /forms">
-    <test name="forms request">
+    <test name="Проверка всего запроса forms">
         <groups>
             <run>
                 <include name="forms" />

@@ -41,7 +41,7 @@ public class ValidateResponse {
         names.add("03. ФОТ ПП");
         names.add("04. Распределение расходов");
         names.add("06. Анализ");
-        ValidateResponseSteps.getFormsValidateSchema(names);
+        ValidateResponseSteps.getFormsContainNames(names);
     }
 
     @Test(groups = { "form" })

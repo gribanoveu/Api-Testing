@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Suites">
+<suite name="All Suites" parallel="methods">
     <suite-files>
         <suite-file path="dbconnection.xml" />
         <suite-file path="form.xml" />

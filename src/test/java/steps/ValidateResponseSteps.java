@@ -24,6 +24,7 @@ public class ValidateResponseSteps extends RestWrapper {
     private static final RequestSpecification API_PATH_FORM_FILTERS = getReqSpec("/formfilters");
     private static final RequestSpecification API_PATH_SAVE_FORM = getReqSpec("/saveForm");
 
+    // Распаковка json по pojo обьекту
     public static void dbConnectionReturnSessionId() {
         SessionIdPojo sessionId = RestAssured.
                 given().spec(API_PATH).
@@ -36,6 +37,7 @@ public class ValidateResponseSteps extends RestWrapper {
         log.info("Длина токена составляет: " + sessionIdLength + " символов");
     }
 
+    // Валидация json по схеме
     public static void getDbConnectionValidateSchema() {
         RestAssured.given().
                 spec(API_PATH_DBCONNECTION).log().uri().
@@ -44,7 +46,8 @@ public class ValidateResponseSteps extends RestWrapper {
                 assertThat().body(matchesJsonSchemaInClasspath("jsons/schemas/AUTH_SHEMA.json"));
     }
 
-    public static void getFormsValidateSchema(List<String> names) {
+    // сравнивание возвращаемого списка name с ожидаемым списком
+    public static void getFormsContainNames(List<String> names) {
          RestAssured.given().
                  spec(API_PATH_FORMS).log().uri().
                  header("sessionID", SESSION_ID).
