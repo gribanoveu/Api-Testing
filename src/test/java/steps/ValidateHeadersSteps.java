@@ -12,7 +12,7 @@ import java.util.List;
 @Slf4j
 public class ValidateHeadersSteps extends RestWrapper {
 
-    public static List<String> getDbConnectionValidateHeader(RequestSpecification requestSpecification) {
+    public List<String> getDbConnectionValidateHeader(RequestSpecification requestSpecification) {
         RequestSpecification request = RestAssured.given().spec(requestSpecification).log().uri();
         Response response = request.get("?login=" + LOGIN + "&password=" + PASSWORD);
 
@@ -28,7 +28,7 @@ public class ValidateHeadersSteps extends RestWrapper {
         return header;
     }
 
-    public static String validateHeader(RequestSpecification requestSpecification) {
+    public String validateHeader(RequestSpecification requestSpecification) {
         RequestSpecification request = RestAssured.given().
                 spec(requestSpecification).log().uri().
                 header("sessionID", SESSION_ID).log().headers();
@@ -36,7 +36,7 @@ public class ValidateHeadersSteps extends RestWrapper {
         return response.header("Content-Type");
     }
 
-    public static String validateHeaderPost(RequestSpecification requestSpecification) {
+    public String validateHeaderPost(RequestSpecification requestSpecification) {
         RequestSpecification request = RestAssured.given().
                 spec(requestSpecification).log().uri().log().body().
                 header("sessionID", SESSION_ID).log().headers();

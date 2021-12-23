@@ -11,7 +11,7 @@ import java.io.File;
 public class StatusCodeSteps extends RestWrapper {
 
     @Step("GET запрос '/dbconnection'. Запрос статус кода")
-    public static int getDbConnectionStatusCode() {
+    public int getDbConnectionStatusCode() {
         return RestAssured.
                 given().spec(API_PATH_DBCONNECTION).log().uri().
                 contentType(ContentType.JSON).
@@ -21,7 +21,7 @@ public class StatusCodeSteps extends RestWrapper {
     }
 
     @Step("GET запрос '/forms'. Запрос статус кода")
-    public static int getFormsResponseStatusCode() {
+    public int getFormsResponseStatusCode() {
          return RestAssured.given().spec(API_PATH_FORMS).log().uri().
                  contentType(ContentType.JSON).
                  header("sessionID", SESSION_ID).
@@ -30,7 +30,7 @@ public class StatusCodeSteps extends RestWrapper {
     }
 
     @Step("GET запрос '/form' по id формы. Запрос статус кода")
-    public static int getFormByIdResponseStatusCode() {
+    public int getFormByIdResponseStatusCode() {
         return RestAssured.given().spec(API_PATH_FORM).log().uri().
                 contentType(ContentType.JSON).
                 header("sessionID", SESSION_ID).
@@ -39,7 +39,7 @@ public class StatusCodeSteps extends RestWrapper {
     }
 
     @Step("GET запрос '/formfilters'. Запрос статус кода")
-    public static int getFormFiltersResponseStatusCode() {
+    public int getFormFiltersResponseStatusCode() {
         return RestAssured.given().spec(API_PATH_FORM_FILTERS).log().uri().
                 contentType(ContentType.JSON).
                 header("sessionID", SESSION_ID).
@@ -48,7 +48,7 @@ public class StatusCodeSteps extends RestWrapper {
     }
 
     @Step("POST запрос '/saveForm'. Запрос статус кода")
-    public static int postSaveFormResponseStatusCode() {
+    public int postSaveFormResponseStatusCode() {
         File JSONFormChanges = new File("src/test/resources/jsons/send/JSONFormChanges.json");
 
         RequestSpecification request = RestAssured.given().
