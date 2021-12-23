@@ -9,6 +9,14 @@ public abstract class RestWrapper {
     protected static final String API_URL = getProjectProperties().apiUrl();
     protected static final String LOGIN = getProjectProperties().apiLogin();
     protected static final String PASSWORD = getProjectProperties().apiPassword();
+    protected static final String FORM_ID = getProjectProperties().formId();
+
+    protected static final RequestSpecification API_PATH = getReqSpec("/dbconnection");
+    protected static final RequestSpecification API_PATH_FORMS = getReqSpec("/forms");
+    protected static final RequestSpecification API_PATH_DBCONNECTION = getReqSpec("/dbconnection");
+    protected static final RequestSpecification API_PATH_FORM = getReqSpec("/form");
+    protected static final RequestSpecification API_PATH_FORM_FILTERS = getReqSpec("/formfilters");
+    protected static final RequestSpecification API_PATH_SAVE_FORM = getReqSpec("/saveForm");
 
     /** Передает параметры из файла Project.properties */
     static ProjectProperties getProjectProperties() {

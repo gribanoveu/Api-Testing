@@ -10,12 +10,6 @@ import java.io.File;
 
 public class StatusCodeSteps extends RestWrapper {
     private static final String SESSION_ID = DbConnectionSteps.getDbConnectionAndGetSessionId();
-    private static final String FORM_ID = "1";
-    private static final RequestSpecification API_PATH_FORMS = getReqSpec("/forms");
-    private static final RequestSpecification API_PATH_DBCONNECTION = getReqSpec("/dbconnection");
-    private static final RequestSpecification API_PATH_FORM = getReqSpec("/form");
-    private static final RequestSpecification API_PATH_FORM_FILTERS = getReqSpec("/formfilters");
-    private static final RequestSpecification API_PATH_SAVE_FORM = getReqSpec("/saveForm");
 
     @Step("GET запрос '/dbconnection'. Запрос статус кода")
     public static int getDbConnectionStatusCode() {

@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "style": {
+      "type": "object"
+    },
+    "subHeaders": {
+      "type": "object"
+    },
+    "rowHeaders": {
+      "type": "object"
+    },
+    "columnHeaders": {
+      "type": "object"
+    },
+    "data": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "description",
+    "style",
+    "subHeaders",
+    "rowHeaders",
+    "columnHeaders",
+    "data"
+  ]
+}

@@ -3,7 +3,6 @@ package tests.positive;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import io.restassured.specification.RequestSpecification;
 import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Test;
 import steps.ValidateHeadersSteps;
@@ -13,11 +12,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
 public class ValidateHeaders extends RestWrapper {
-    private static final RequestSpecification API_PATH_FORMS = getReqSpec("/forms");
-    private static final RequestSpecification API_PATH_DBCONNECTION = getReqSpec("/dbconnection");
-    private static final RequestSpecification API_PATH_FORM = getReqSpec("/form");
-    private static final RequestSpecification API_PATH_FORM_FILTERS = getReqSpec("/formfilters");
-    private static final RequestSpecification API_PATH_SAVE_FORM = getReqSpec("/saveForm");
 
     @Test(groups = { "dbconnection", "headers" })
     @Feature("Проверить заголовки")

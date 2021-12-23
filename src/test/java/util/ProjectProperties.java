@@ -13,4 +13,7 @@ public interface ProjectProperties extends Config {
 
     @Key("apiPassword")
     String apiPassword();
+
+    @Key("formId")
+    String formId();
 }

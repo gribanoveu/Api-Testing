@@ -10,27 +10,31 @@ import steps.ValidateResponseSteps;
 import java.util.LinkedList;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 @Slf4j
 public class ValidateResponse {
+    ValidateResponseSteps validateResponseSteps = new ValidateResponseSteps();
 
     @Test(groups = { "SMOKE", "dbconnection" })
     @Feature("Подтвердить загрузку ответа")
     @Story("TA-1Б-1")
     @Description("Авторизация в системе с корректным логином и паролем возвращает sessionID")
     public void getDbConnectionReturnSessionIdTest() {
-        ValidateResponseSteps.dbConnectionReturnSessionId();
+        var sessionIdLength = validateResponseSteps.dbConnectionReturnSessionId();
+        assertThat(sessionIdLength).isNotNull();
+        log.info("Длина токена составляет: " + sessionIdLength + " символов");
     }
 
-    @Test(groups = { "dbconnection" })
+    @Test(groups = { "dbconnection", "schema" })
     @Feature("Подтвердить загрузку ответа")
     @Story("TA-1Б-2")
     @Description(" Структура ответа JSON для получения sessionID соответствует модели данных")
     public void getDbConnectionValidateSchemaTest() {
-        ValidateResponseSteps.getDbConnectionValidateSchema();
-        log.info("Схема запроса /dbconnection совпадает с ожидаемой AUTH_SHEMA.json");
+        validateResponseSteps.getDbConnectionValidateSchema();
     }
 
-    @Test(groups = { "forms" })
+    @Test(groups = { "forms", "schema" })
     @Feature("Подтвердить загрузку ответа")
     @Story("TA-1Б-3")
     @Description("Структура ответа JSON для получения списка форм соответствует модели данных")
@@ -41,18 +45,18 @@ public class ValidateResponse {
         names.add("03. ФОТ ПП");
         names.add("04. Распределение расходов");
         names.add("06. Анализ");
-        ValidateResponseSteps.getFormsContainNames(names);
+        validateResponseSteps.getFormsContainNames(names);
     }
 
-    @Test(groups = { "form" })
+    @Test(groups = { "form", "schema" })
     @Feature("Подтвердить загрузку ответа")
     @Story("TA-1Б-4")
     @Description("Структура ответа JSON для получения формы по id соответствует модели данных")
     public void getFormByIdValidateSchemaTest() {
-        // TODO
+        validateResponseSteps.getFormByIdContainsFields();
     }
 
-    @Test(groups = { "formfilters" })
+    @Test(groups = { "formfilters", "schema" })
     @Feature("Подтвердить загрузку ответа")
     @Story("TA-1Б-5")
     @Description("Структура ответа JSON для получения фильтров формы по id соответствует модели данных")
@@ -60,7 +64,7 @@ public class ValidateResponse {
         // TODO
     }
 
-    @Test(groups = { "saveForm" })
+    @Test(groups = { "saveForm", "schema" })
     @Feature("Подтвердить загрузку ответа")
     @Story("TA-1Б-6")
     @Description("Структура ответа JSON после POST запроса с JSON-обьектом возвращает " +
