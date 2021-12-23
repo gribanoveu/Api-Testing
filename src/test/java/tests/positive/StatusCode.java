@@ -1,20 +1,22 @@
 package tests.positive;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import lombok.extern.slf4j.Slf4j;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import steps.StatusCodeSteps;
+import util.LogListener;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
+@Listeners(LogListener.class)
 public class StatusCode {
 
     @Test(groups = { "SMOKE", "dbconnection" })
     @Feature("Проверить код состояния")
     @Story("TA-1А-1")
+    @Severity(SeverityLevel.BLOCKER)
     @Description("Авторизация в системе с корректным логином и паролем возвращает Status Code 200 ОК")
     public void dbConnectionReturnStatusCodeOkTest() {
         var statusCode = StatusCodeSteps.getDbConnectionStatusCode();
@@ -25,6 +27,7 @@ public class StatusCode {
     @Test(groups = { "SMOKE", "forms" })
     @Feature("Проверить код состояния")
     @Story("TA-1А-2")
+    @Severity(SeverityLevel.BLOCKER)
     @Description("GET запрос списка форм возвращает Status Code 200 ОК")
     public void getFormsReturnStatusCodeOkTest() {
         var statusCode = StatusCodeSteps.getFormsResponseStatusCode();
@@ -35,6 +38,7 @@ public class StatusCode {
     @Test(groups = { "SMOKE", "form" })
     @Feature("Проверить код состояния")
     @Story("TA-1А-3")
+    @Severity(SeverityLevel.BLOCKER)
     @Description("GET запрос формы по id возвращает Status Code 200 ОК")
     public void getFormByIdReturnStatusCodeOkTest() {
         var statusCode = StatusCodeSteps.getFormByIdResponseStatusCode();
@@ -45,6 +49,7 @@ public class StatusCode {
     @Test(groups = { "SMOKE", "formfilters" })
     @Feature("Проверить код состояния")
     @Story("TA-1А-4")
+    @Severity(SeverityLevel.BLOCKER)
     @Description("GET запрос фильтров для формы по id возвращает Status Code 200 ОК")
     public void getFormFiltersReturnStatusCodeOkTest() {
         var statusCode = StatusCodeSteps.getFormFiltersResponseStatusCode();
@@ -55,6 +60,7 @@ public class StatusCode {
     @Test(groups = { "SMOKE", "saveForm" })
     @Feature("Проверить код состояния")
     @Story("TA-1А-5")
+    @Severity(SeverityLevel.BLOCKER)
     @Description("POST запрос с валидным JSON-обьектом возвращает Status Code 200 ОК")
     public void postSaveFormReturnStatusCodeOkTest() {
         var statusCode = StatusCodeSteps.postSaveFormResponseStatusCode();

@@ -4,13 +4,16 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import lombok.extern.slf4j.Slf4j;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import steps.ValidateHeadersSteps;
+import util.LogListener;
 import util.RestWrapper;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
+@Listeners(LogListener.class)
 public class ValidateHeaders extends RestWrapper {
 
     @Test(groups = { "dbconnection", "headers" })
@@ -57,7 +60,7 @@ public class ValidateHeaders extends RestWrapper {
     @Story("TA-1В-5")
     @Description("Заголовки ответа на POST запрос с JSON-обьектом ссответствуют ожидаемым")
     public void postSaveFormValidateHeaders() {
-        var responseHeader = ValidateHeadersSteps.validateHeader(API_PATH_SAVE_FORM);
+        var responseHeader = ValidateHeadersSteps.validateHeaderPost(API_PATH_SAVE_FORM);
         log.info("Header GET запроса /saveForm содержит Content-Type: " + responseHeader);
         assertThat(responseHeader).contains("application/json; charset=utf-8");
     }

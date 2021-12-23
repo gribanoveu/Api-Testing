@@ -14,7 +14,6 @@ import static org.hamcrest.Matchers.equalTo;
 
 @Slf4j
 public class ValidateResponseSteps extends RestWrapper {
-    private static final String SESSION_ID = DbConnectionSteps.getDbConnectionAndGetSessionId();
 
     // Распаковка json по pojo обьекту
     public int dbConnectionReturnSessionId() {
@@ -33,7 +32,7 @@ public class ValidateResponseSteps extends RestWrapper {
                 spec(API_PATH_DBCONNECTION).log().uri().
                 when().get("?login=" + LOGIN + "&password=" + PASSWORD).
                 then().log().status().
-                assertThat().body(matchesJsonSchemaInClasspath("jsons/schemas/AUTH_SCHEMA.json"));
+                assertThat().body(matchesJsonSchemaInClasspath("jsons/schemas/AUTH_SHEMA.json"));
         log.info("Схема запроса /dbconnection и ожидаемая AUTH_SCHEMA.json совпадают");
     }
 

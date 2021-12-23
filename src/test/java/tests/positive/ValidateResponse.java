@@ -4,8 +4,10 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import lombok.extern.slf4j.Slf4j;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import steps.ValidateResponseSteps;
+import util.LogListener;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -13,6 +15,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
+@Listeners(LogListener.class)
 public class ValidateResponse {
     ValidateResponseSteps validateResponseSteps = new ValidateResponseSteps();
 

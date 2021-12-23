@@ -9,12 +9,12 @@ import util.RestWrapper;
 import java.io.File;
 
 public class StatusCodeSteps extends RestWrapper {
-    private static final String SESSION_ID = DbConnectionSteps.getDbConnectionAndGetSessionId();
 
     @Step("GET запрос '/dbconnection'. Запрос статус кода")
     public static int getDbConnectionStatusCode() {
         return RestAssured.
                 given().spec(API_PATH_DBCONNECTION).log().uri().
+                contentType(ContentType.JSON).
                 when().get("?login=" + LOGIN + "&password=" + PASSWORD).
                 then().log().body().
                 extract().statusCode();
@@ -23,14 +23,16 @@ public class StatusCodeSteps extends RestWrapper {
     @Step("GET запрос '/forms'. Запрос статус кода")
     public static int getFormsResponseStatusCode() {
          return RestAssured.given().spec(API_PATH_FORMS).log().uri().
-                header("sessionID", SESSION_ID).
-                when().get().
-                then().extract().statusCode();
+                 contentType(ContentType.JSON).
+                 header("sessionID", SESSION_ID).
+                 when().get().
+                 then().extract().statusCode();
     }
 
     @Step("GET запрос '/form' по id формы. Запрос статус кода")
     public static int getFormByIdResponseStatusCode() {
         return RestAssured.given().spec(API_PATH_FORM).log().uri().
+                contentType(ContentType.JSON).
                 header("sessionID", SESSION_ID).
                 when().get("?formid=" + FORM_ID).
                 then().extract().statusCode();
@@ -39,6 +41,7 @@ public class StatusCodeSteps extends RestWrapper {
     @Step("GET запрос '/formfilters'. Запрос статус кода")
     public static int getFormFiltersResponseStatusCode() {
         return RestAssured.given().spec(API_PATH_FORM_FILTERS).log().uri().
+                contentType(ContentType.JSON).
                 header("sessionID", SESSION_ID).
                 when().get("?formid=" + FORM_ID).
                 then().extract().statusCode();
