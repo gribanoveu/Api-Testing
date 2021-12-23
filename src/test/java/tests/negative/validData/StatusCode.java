@@ -25,7 +25,7 @@ public class StatusCode {
     @Feature("Проверить код состояния")
     @Story("TA-2А-2")
     @Severity(SeverityLevel.BLOCKER)
-    @Description("GET запрос списка форм с невалидным sessionID возвращает ошибку")
+    @Description("GET запрос списка форм с валидным sessionID возвращает ошибку")
     public void getFormsWrongSessionIdStatusCodeTest() {
         // TODO
     }
@@ -52,7 +52,7 @@ public class StatusCode {
     @Feature("Проверить код состояния")
     @Story("TA-2А-5")
     @Severity(SeverityLevel.BLOCKER)
-    @Description("POST запрос с невалидным JSON-обьектом возвращает ошибку")
+    @Description("POST запрос с валидным JSON-обьектом возвращает ошибку")
     public void postSaveFormWrongJsonStatusCodeTest() {
         // TODO
     }
