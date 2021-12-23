@@ -57,6 +57,16 @@ public class ValidateResponseSteps extends RestWrapper {
                 when().get("?formid=" + FORM_ID).
                 then().log().status().
                 assertThat().body(matchesJsonSchemaInClasspath("jsons/schemas/GET_FORM_BY_ID_SCHEMA.json"));
-        log.info("Схема запроса /dbconnection и ожидаемая GET_FORM_BY_ID_SCHEMA.json совпадают");
+        log.info("Схема запроса /form и ожидаемая GET_FORM_BY_ID_SCHEMA.json совпадают");
+    }
+
+    public void getFormFiltersContainsFields() {
+        ValidatableResponse a =  RestAssured.given().
+                spec(API_PATH_FORM_FILTERS).log().uri().
+                header("sessionID", SESSION_ID).
+                when().get("?formid=" + FORM_ID).
+                then().log().status().
+                assertThat().body(matchesJsonSchemaInClasspath("jsons/schemas/FORM_FILTERS_SCHEMA.json"));
+        log.info("Схема запроса /formfilters и ожидаемая GET_FORM_BY_ID_SCHEMA.json совпадают");
     }
 }

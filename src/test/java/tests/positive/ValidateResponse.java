@@ -64,7 +64,7 @@ public class ValidateResponse {
     @Story("TA-1Б-5")
     @Description("Структура ответа JSON для получения фильтров формы по id соответствует модели данных")
     public void getFormFiltersValidateSchemaTest() {
-        // TODO
+        validateResponseSteps.getFormFiltersContainsFields();
     }
 
     @Test(groups = { "saveForm", "schema" })
@@ -73,6 +73,6 @@ public class ValidateResponse {
     @Description("Структура ответа JSON после POST запроса с JSON-обьектом возвращает " +
                  "новый JSON-обьект с обновленными после слияния значениями и соответствует модели данных")
     public void postSaveFormValidateSchemaTest() {
-        // TODO
+        // TODO нет ответа json от заглушки
     }
 }

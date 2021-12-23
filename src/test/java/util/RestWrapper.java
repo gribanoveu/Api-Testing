@@ -23,7 +23,7 @@ public abstract class RestWrapper {
     protected static final String SESSION_ID = getDbConnectionAndGetSessionId();
 
     @Step("GET запрос '/dbconnection'. Вернуть sessionID")
-    public static String getDbConnectionAndGetSessionId() {
+    protected static String getDbConnectionAndGetSessionId() {
         return RestAssured.given().spec(API_PATH).
                 when().
                 get("?login=" + LOGIN + "&password=" + PASSWORD)
@@ -37,7 +37,7 @@ public abstract class RestWrapper {
         return ConfigFactory.newInstance().create(ProjectProperties.class, System.getProperties());
     }
 
-    public static RequestSpecification getReqSpec(String apiPath) {
+    protected static RequestSpecification getReqSpec(String apiPath) {
         return new RequestSpecBuilder().
                 setBaseUri(API_URL).
                 setBasePath(apiPath).
