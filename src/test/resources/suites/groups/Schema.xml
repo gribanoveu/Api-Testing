@@ -8,7 +8,7 @@
             </run>
         </groups>
         <classes>
-            <class name="tests.positive.ValidateResponse" />
+            <class name="tests.ValidateResponsePositive" />
         </classes>
     </test>
 </suite>

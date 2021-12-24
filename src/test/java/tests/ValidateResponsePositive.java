@@ -1,4 +1,4 @@
-package tests.positive;
+package tests;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
 @Listeners(LogListener.class)
-public class ValidateResponse {
+public class ValidateResponsePositive {
     ValidateResponsePositiveSteps validateResponseSteps = new ValidateResponsePositiveSteps();
 
     @Test(groups = { "SMOKE", "dbconnection" })
@@ -43,7 +43,7 @@ public class ValidateResponse {
     @Story("TA-1Б-3")
     @Description("Структура ответа JSON для получения списка форм соответствует модели данных")
     public void getFormsValidateSchemaTest() {
-        List<String> names = new LinkedList<String>();
+        List<String> names = new LinkedList<>();
         names.add("01. Параметры");
         names.add("02. Выручка");
         names.add("03. ФОТ ПП");

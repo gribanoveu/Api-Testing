@@ -1,4 +1,4 @@
-package tests.positive;
+package tests;
 
 import io.qameta.allure.*;
 import lombok.extern.slf4j.Slf4j;
@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
 @Listeners(LogListener.class)
-public class StatusCode {
+public class StatusCodePositive {
     StatusCodePositiveSteps statusCodePositiveSteps = new StatusCodePositiveSteps();
 
     @Test(groups = { "SMOKE", "dbconnection" })

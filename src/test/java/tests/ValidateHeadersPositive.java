@@ -1,4 +1,4 @@
-package tests.positive;
+package tests;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
 @Listeners(LogListener.class)
-public class ValidateHeaders extends RestWrapper {
+public class ValidateHeadersPositive extends RestWrapper {
     ValidateHeadersPositiveSteps validateHeadersSteps = new ValidateHeadersPositiveSteps();
 
     @Test(groups = { "dbconnection", "headers" })
