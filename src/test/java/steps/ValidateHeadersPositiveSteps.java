@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class ValidateHeadersSteps extends RestWrapper {
+public class ValidateHeadersPositiveSteps extends RestWrapper {
 
     public List<String> getDbConnectionValidateHeader(RequestSpecification requestSpecification) {
         RequestSpecification request = RestAssured.given().spec(requestSpecification).log().uri();

@@ -1,4 +1,4 @@
-package tests.negative.InvalidData;
+package tests.negative.invalidData;
 
 import io.qameta.allure.*;
 import lombok.extern.slf4j.Slf4j;

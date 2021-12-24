@@ -6,7 +6,7 @@ import io.qameta.allure.Story;
 import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import steps.ValidateHeadersSteps;
+import steps.ValidateHeadersPositiveSteps;
 import util.LogListener;
 import util.RestWrapper;
 
@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Slf4j
 @Listeners(LogListener.class)
 public class ValidateHeaders extends RestWrapper {
-    ValidateHeadersSteps validateHeadersSteps = new ValidateHeadersSteps();
+    ValidateHeadersPositiveSteps validateHeadersSteps = new ValidateHeadersPositiveSteps();
 
     @Test(groups = { "dbconnection", "headers" })
     @Feature("Проверить заголовки")

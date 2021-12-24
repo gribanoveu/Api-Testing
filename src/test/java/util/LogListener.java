@@ -26,8 +26,7 @@ public class LogListener implements ITestListener {
     public void onStart(ITestContext iTestContext) {
         RestAssured.filters(
                 new ResponseLoggingFilter(LogDetail.ALL, responseVar),
-                new RequestLoggingFilter(LogDetail.ALL, requestVar),
-                new ErrorLoggingFilter(errorVar));
+                new RequestLoggingFilter(LogDetail.ALL, requestVar));
     }
 
     public void onTestSuccess(ITestResult iTestResult) {
@@ -37,7 +36,6 @@ public class LogListener implements ITestListener {
 
     public void onTestFailure(ITestResult iTestResult) {
         onTestSuccess(iTestResult);
-        logResponse(error);
     }
 
     @Attachment(value = "request")

@@ -13,7 +13,7 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 import static org.hamcrest.Matchers.equalTo;
 
 @Slf4j
-public class ValidateResponseSteps extends RestWrapper {
+public class ValidateResponsePositiveSteps extends RestWrapper {
 
     // Распаковка json по pojo обьекту
     public int dbConnectionReturnSessionId() {

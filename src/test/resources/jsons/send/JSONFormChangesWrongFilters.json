@@ -1,0 +1,21 @@
+{
+  "changedCells" : [
+    {
+      "value" : 88,
+      "type" : "float",
+      "rowID" : 1,
+      "colID" : 1
+    }
+  ],
+
+  "filters" : [
+    {
+      "filterDataParam" : [
+        {
+          "id" : "999",
+          "value" : "9999"
+        }
+      ]
+    }
+  ]
+}

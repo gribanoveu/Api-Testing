@@ -11,6 +11,10 @@
             <class name="tests.positive.StatusCode" />
             <class name="tests.positive.ValidateHeaders"/>
             <class name="tests.positive.ValidateResponse"/>
+            <class name="tests.negative.validData.StatusCode"/>
+            <class name="tests.negative.validData.CorrectLoading"/>
+            <class name="tests.negative.invalidData.StatusCode"/>
+            <class name="tests.negative.invalidData.CorrectLoading"/>
         </classes>
     </test>
 </suite>

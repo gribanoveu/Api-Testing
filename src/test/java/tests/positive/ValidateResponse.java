@@ -2,11 +2,12 @@ package tests.positive;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Flaky;
 import io.qameta.allure.Story;
 import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import steps.ValidateResponseSteps;
+import steps.ValidateResponsePositiveSteps;
 import util.LogListener;
 
 import java.util.LinkedList;
@@ -17,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Slf4j
 @Listeners(LogListener.class)
 public class ValidateResponse {
-    ValidateResponseSteps validateResponseSteps = new ValidateResponseSteps();
+    ValidateResponsePositiveSteps validateResponseSteps = new ValidateResponsePositiveSteps();
 
     @Test(groups = { "SMOKE", "dbconnection" })
     @Feature("Подтвердить загрузку ответа")
@@ -67,6 +68,7 @@ public class ValidateResponse {
         validateResponseSteps.getFormFiltersContainsFields();
     }
 
+    @Flaky
     @Test(groups = { "saveForm", "schema" })
     @Feature("Подтвердить загрузку ответа")
     @Story("TA-1Б-6")

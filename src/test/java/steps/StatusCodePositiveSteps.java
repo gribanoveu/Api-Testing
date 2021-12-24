@@ -8,7 +8,7 @@ import util.RestWrapper;
 
 import java.io.File;
 
-public class StatusCodeSteps extends RestWrapper {
+public class StatusCodePositiveSteps extends RestWrapper {
 
     @Step("GET запрос '/dbconnection'. Запрос статус кода")
     public int getDbConnectionStatusCode() {

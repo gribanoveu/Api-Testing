@@ -4,7 +4,7 @@ import io.qameta.allure.*;
 import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import steps.StatusCodeSteps;
+import steps.StatusCodePositiveSteps;
 import util.LogListener;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Slf4j
 @Listeners(LogListener.class)
 public class StatusCode {
-    StatusCodeSteps statusCodeSteps = new StatusCodeSteps();
+    StatusCodePositiveSteps statusCodePositiveSteps = new StatusCodePositiveSteps();
 
     @Test(groups = { "SMOKE", "dbconnection" })
     @Feature("Проверить код состояния")
@@ -20,7 +20,7 @@ public class StatusCode {
     @Severity(SeverityLevel.BLOCKER)
     @Description("Авторизация в системе с корректным логином и паролем возвращает Status Code 200 ОК")
     public void dbConnectionReturnStatusCodeOkTest() {
-        var statusCode = statusCodeSteps.getDbConnectionStatusCode();
+        var statusCode = statusCodePositiveSteps.getDbConnectionStatusCode();
         assertThat(statusCode).isEqualTo(200);
         log.info("GET запрос /dbconnection возвращает статус код: " + statusCode);
     }
@@ -31,7 +31,7 @@ public class StatusCode {
     @Severity(SeverityLevel.BLOCKER)
     @Description("GET запрос списка форм возвращает Status Code 200 ОК")
     public void getFormsReturnStatusCodeOkTest() {
-        var statusCode = statusCodeSteps.getFormsResponseStatusCode();
+        var statusCode = statusCodePositiveSteps.getFormsResponseStatusCode();
         assertThat(statusCode).isEqualTo(200);
         log.info("GET запрос /forms возвращает статус код: " + statusCode);
     }
@@ -42,7 +42,7 @@ public class StatusCode {
     @Severity(SeverityLevel.BLOCKER)
     @Description("GET запрос формы по id возвращает Status Code 200 ОК")
     public void getFormByIdReturnStatusCodeOkTest() {
-        var statusCode = statusCodeSteps.getFormByIdResponseStatusCode();
+        var statusCode = statusCodePositiveSteps.getFormByIdResponseStatusCode();
         assertThat(statusCode).isEqualTo(200);
         log.info("GET запрос /forms возвращает статус код: " + statusCode);
     }
@@ -53,7 +53,7 @@ public class StatusCode {
     @Severity(SeverityLevel.BLOCKER)
     @Description("GET запрос фильтров для формы по id возвращает Status Code 200 ОК")
     public void getFormFiltersReturnStatusCodeOkTest() {
-        var statusCode = statusCodeSteps.getFormFiltersResponseStatusCode();
+        var statusCode = statusCodePositiveSteps.getFormFiltersResponseStatusCode();
         assertThat(statusCode).isEqualTo(200);
         log.info("GET запрос /forms возвращает статус код: " + statusCode);
     }
@@ -64,7 +64,7 @@ public class StatusCode {
     @Severity(SeverityLevel.BLOCKER)
     @Description("POST запрос с валидным JSON-обьектом возвращает Status Code 200 ОК")
     public void postSaveFormReturnStatusCodeOkTest() {
-        var statusCode = statusCodeSteps.postSaveFormResponseStatusCode();
+        var statusCode = statusCodePositiveSteps.postSaveFormResponseStatusCode();
         assertThat(statusCode).isEqualTo(200);
         log.info("GET запрос /forms возвращает статус код: " + statusCode);
     }
