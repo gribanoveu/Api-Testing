@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ValidateResponsePositive {
     ValidateResponsePositiveSteps validateResponseSteps = new ValidateResponsePositiveSteps();
 
-    @Test(groups = { "SMOKE", "dbconnection", "positive" })
+    @Test(groups = { "dbconnection", "positive", "schema" })
     @Feature("Подтвердить загрузку ответа")
     @Story("TA-1Б-1")
     @Description("Авторизация в системе с корректным логином и паролем возвращает sessionID")

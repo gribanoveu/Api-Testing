@@ -2,7 +2,6 @@ package util;
 
 import io.qameta.allure.Attachment;
 import io.restassured.RestAssured;
-import io.restassured.filter.log.ErrorLoggingFilter;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;

@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class StatusCodePositive {
     StatusCodePositiveSteps statusCodePositiveSteps = new StatusCodePositiveSteps();
 
-    @Test(groups = { "SMOKE", "dbconnection", "positive" })
+    @Test(groups = { "SMOKE", "dbconnection", "positive", "statusCode" })
     @Feature("Проверить код состояния")
     @Story("TA-1А-1")
     @Severity(SeverityLevel.BLOCKER)
@@ -25,7 +25,7 @@ public class StatusCodePositive {
         log.info("GET запрос /dbconnection возвращает статус код: " + statusCode);
     }
 
-    @Test(groups = { "SMOKE", "forms", "positive" })
+    @Test(groups = { "SMOKE", "forms", "positive", "statusCode" })
     @Feature("Проверить код состояния")
     @Story("TA-1А-2")
     @Severity(SeverityLevel.BLOCKER)
@@ -36,7 +36,7 @@ public class StatusCodePositive {
         log.info("GET запрос /forms возвращает статус код: " + statusCode);
     }
 
-    @Test(groups = { "SMOKE", "form", "positive" })
+    @Test(groups = { "SMOKE", "form", "positive", "statusCode" })
     @Feature("Проверить код состояния")
     @Story("TA-1А-3")
     @Severity(SeverityLevel.BLOCKER)
@@ -47,7 +47,7 @@ public class StatusCodePositive {
         log.info("GET запрос /forms возвращает статус код: " + statusCode);
     }
 
-    @Test(groups = { "SMOKE", "formfilters", "positive" })
+    @Test(groups = { "SMOKE", "formfilters", "positive", "statusCode" })
     @Feature("Проверить код состояния")
     @Story("TA-1А-4")
     @Severity(SeverityLevel.BLOCKER)
@@ -58,7 +58,7 @@ public class StatusCodePositive {
         log.info("GET запрос /forms возвращает статус код: " + statusCode);
     }
 
-    @Test(groups = { "SMOKE", "saveForm", "positive" })
+    @Test(groups = { "SMOKE", "saveForm", "positive", "statusCode" })
     @Feature("Проверить код состояния")
     @Story("TA-1А-5")
     @Severity(SeverityLevel.BLOCKER)
