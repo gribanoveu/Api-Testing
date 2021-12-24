@@ -1,10 +1,10 @@
-package tests;
+package tests.positive;
 
 import io.qameta.allure.*;
 import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import steps.StatusCodePositiveSteps;
+import steps.positive.StatusCodePositiveSteps;
 import util.LogListener;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class StatusCodePositive {
     StatusCodePositiveSteps statusCodePositiveSteps = new StatusCodePositiveSteps();
 
-    @Test(groups = { "SMOKE", "dbconnection" })
+    @Test(groups = { "SMOKE", "dbconnection", "positive" })
     @Feature("Проверить код состояния")
     @Story("TA-1А-1")
     @Severity(SeverityLevel.BLOCKER)
@@ -25,7 +25,7 @@ public class StatusCodePositive {
         log.info("GET запрос /dbconnection возвращает статус код: " + statusCode);
     }
 
-    @Test(groups = { "SMOKE", "forms" })
+    @Test(groups = { "SMOKE", "forms", "positive" })
     @Feature("Проверить код состояния")
     @Story("TA-1А-2")
     @Severity(SeverityLevel.BLOCKER)
@@ -36,7 +36,7 @@ public class StatusCodePositive {
         log.info("GET запрос /forms возвращает статус код: " + statusCode);
     }
 
-    @Test(groups = { "SMOKE", "form" })
+    @Test(groups = { "SMOKE", "form", "positive" })
     @Feature("Проверить код состояния")
     @Story("TA-1А-3")
     @Severity(SeverityLevel.BLOCKER)
@@ -47,7 +47,7 @@ public class StatusCodePositive {
         log.info("GET запрос /forms возвращает статус код: " + statusCode);
     }
 
-    @Test(groups = { "SMOKE", "formfilters" })
+    @Test(groups = { "SMOKE", "formfilters", "positive" })
     @Feature("Проверить код состояния")
     @Story("TA-1А-4")
     @Severity(SeverityLevel.BLOCKER)
@@ -58,7 +58,7 @@ public class StatusCodePositive {
         log.info("GET запрос /forms возвращает статус код: " + statusCode);
     }
 
-    @Test(groups = { "SMOKE", "saveForm" })
+    @Test(groups = { "SMOKE", "saveForm", "positive" })
     @Feature("Проверить код состояния")
     @Story("TA-1А-5")
     @Severity(SeverityLevel.BLOCKER)

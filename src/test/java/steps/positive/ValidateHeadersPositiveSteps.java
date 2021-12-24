@@ -1,4 +1,4 @@
-package steps;
+package steps.positive;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -19,7 +19,7 @@ public class ValidateHeadersPositiveSteps extends RestWrapper {
         String contentType = response.header("Content-Type");
         String contentLength = response.header("Content-Length");
 
-        List<String> header = new ArrayList<String>();
+        List<String> header = new ArrayList<>();
         header.add(contentType);
         header.add(contentLength);
 

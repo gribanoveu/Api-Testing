@@ -1,55 +1,53 @@
-package steps;
+package steps.wrongData;
 
-import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import util.RestWrapper;
+import util.StringUtils;
 
 import java.io.File;
 
-public class StatusCodePositiveSteps extends RestWrapper {
+public class StatusCodeWrongDataSteps extends RestWrapper {
+    private static final String GENERATED_WRONG_SESSIONID = StringUtils.getRandomIllegalCharactersString(24);
+    private static final String GENERATED_WRONG_LOGIN_DATA = StringUtils.getRandomIllegalCharactersString(5);
+    private static final String GENERATED_WRONG_FORMID = StringUtils.getRandomIllegalCharactersString(2);
 
-    @Step("GET запрос '/dbconnection'. Запрос статус кода")
-    public int getDbConnectionStatusCode() {
+    public int dbConnectionIllegalLoginData() {
         return RestAssured.
                 given().spec(API_PATH_DBCONNECTION).log().uri().
                 contentType(ContentType.JSON).
-                when().get("?login=" + LOGIN + "&password=" + PASSWORD).
+                when().get("?login=" + GENERATED_WRONG_LOGIN_DATA + "&password=" + GENERATED_WRONG_LOGIN_DATA).
                 then().log().body().
                 extract().statusCode();
     }
 
-    @Step("GET запрос '/forms'. Запрос статус кода")
-    public int getFormsResponseStatusCode() {
-         return RestAssured.given().spec(API_PATH_FORMS).log().uri().
-                 contentType(ContentType.JSON).
-                 header("sessionID", SESSION_ID).
-                 when().get().
-                 then().extract().statusCode();
+    public int getFormsIllegalSessionId() {
+        return RestAssured.given().spec(API_PATH_FORMS).log().uri().
+                contentType(ContentType.JSON).
+                header("sessionID", GENERATED_WRONG_SESSIONID).
+                when().get().
+                then().extract().statusCode();
     }
 
-    @Step("GET запрос '/form' по id формы. Запрос статус кода")
-    public int getFormByIdResponseStatusCode() {
+    public int getFormByIllegalId() {
         return RestAssured.given().spec(API_PATH_FORM).log().uri().
                 contentType(ContentType.JSON).
                 header("sessionID", SESSION_ID).
-                when().get("?formid=" + FORM_ID).
+                when().get("?formid=" + GENERATED_WRONG_FORMID).
                 then().extract().statusCode();
     }
 
-    @Step("GET запрос '/formfilters'. Запрос статус кода")
-    public int getFormFiltersResponseStatusCode() {
+    public int getFormFiltersByIllegalId() {
         return RestAssured.given().spec(API_PATH_FORM_FILTERS).log().uri().
                 contentType(ContentType.JSON).
                 header("sessionID", SESSION_ID).
-                when().get("?formid=" + FORM_ID).
+                when().get("?formid=" + GENERATED_WRONG_FORMID).
                 then().extract().statusCode();
     }
 
-    @Step("POST запрос '/saveForm'. Запрос статус кода")
-    public int postSaveFormResponseStatusCode() {
-        File JSONFormChanges = new File("src/test/resources/jsons/send/JSONFormChanges.json");
+    public int postSaveFormIllegalJson() {
+        File JSONFormChanges = new File("src/test/resources/jsons/send/JSONFormChangesIllegalFilters.json");
 
         RequestSpecification request = RestAssured.given().
                 contentType(ContentType.JSON).

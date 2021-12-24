@@ -1,4 +1,4 @@
-package tests;
+package tests.positive;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
@@ -7,7 +7,7 @@ import io.qameta.allure.Story;
 import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import steps.ValidateResponsePositiveSteps;
+import steps.positive.ValidateResponsePositiveSteps;
 import util.LogListener;
 
 import java.util.LinkedList;
@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ValidateResponsePositive {
     ValidateResponsePositiveSteps validateResponseSteps = new ValidateResponsePositiveSteps();
 
-    @Test(groups = { "SMOKE", "dbconnection" })
+    @Test(groups = { "SMOKE", "dbconnection", "positive" })
     @Feature("Подтвердить загрузку ответа")
     @Story("TA-1Б-1")
     @Description("Авторизация в системе с корректным логином и паролем возвращает sessionID")
@@ -30,7 +30,7 @@ public class ValidateResponsePositive {
         log.info("Длина токена составляет: " + sessionIdLength + " символов");
     }
 
-    @Test(groups = { "dbconnection", "schema" })
+    @Test(groups = { "dbconnection", "schema", "positive" })
     @Feature("Подтвердить загрузку ответа")
     @Story("TA-1Б-2")
     @Description(" Структура ответа JSON для получения sessionID соответствует модели данных")
@@ -38,7 +38,7 @@ public class ValidateResponsePositive {
         validateResponseSteps.getDbConnectionValidateSchema();
     }
 
-    @Test(groups = { "forms", "schema" })
+    @Test(groups = { "forms", "schema", "positive" })
     @Feature("Подтвердить загрузку ответа")
     @Story("TA-1Б-3")
     @Description("Структура ответа JSON для получения списка форм соответствует модели данных")
@@ -52,7 +52,7 @@ public class ValidateResponsePositive {
         validateResponseSteps.getFormsContainNames(names);
     }
 
-    @Test(groups = { "form", "schema" })
+    @Test(groups = { "form", "schema", "positive" })
     @Feature("Подтвердить загрузку ответа")
     @Story("TA-1Б-4")
     @Description("Структура ответа JSON для получения формы по id соответствует модели данных")
@@ -60,7 +60,7 @@ public class ValidateResponsePositive {
         validateResponseSteps.getFormByIdContainsFields();
     }
 
-    @Test(groups = { "formfilters", "schema" })
+    @Test(groups = { "formfilters", "schema", "positive" })
     @Feature("Подтвердить загрузку ответа")
     @Story("TA-1Б-5")
     @Description("Структура ответа JSON для получения фильтров формы по id соответствует модели данных")
@@ -69,7 +69,7 @@ public class ValidateResponsePositive {
     }
 
     @Flaky
-    @Test(groups = { "saveForm", "schema" })
+    @Test(groups = { "saveForm", "schema", "positive" })
     @Feature("Подтвердить загрузку ответа")
     @Story("TA-1Б-6")
     @Description("Структура ответа JSON после POST запроса с JSON-обьектом возвращает " +

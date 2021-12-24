@@ -1,10 +1,10 @@
-package tests;
+package tests.validData;
 
 import io.qameta.allure.*;
 import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import steps.StatusCodeValidDataSteps;
+import steps.validData.StatusCodeValidDataSteps;
 import util.LogListener;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -15,7 +15,7 @@ public class StatusCodeValidData {
     StatusCodeValidDataSteps statusCodeValidDataSteps = new StatusCodeValidDataSteps();
 
     @Flaky
-    @Test(groups = { "SMOKE", "dbconnection" })
+    @Test(groups = { "SMOKE", "dbconnection", "validData" })
     @Feature("Проверить код состояния")
     @Story("TA-2А-1")
     @Severity(SeverityLevel.BLOCKER)
@@ -27,7 +27,7 @@ public class StatusCodeValidData {
     }
 
     @Flaky
-    @Test(groups = { "SMOKE", "forms" })
+    @Test(groups = { "SMOKE", "forms", "validData" })
     @Feature("Проверить код состояния")
     @Story("TA-2А-2")
     @Severity(SeverityLevel.BLOCKER)
@@ -39,7 +39,7 @@ public class StatusCodeValidData {
     }
 
     @Flaky
-    @Test(groups = { "SMOKE", "form" })
+    @Test(groups = { "SMOKE", "form", "validData" })
     @Feature("Проверить код состояния")
     @Story("TA-2А-3")
     @Severity(SeverityLevel.BLOCKER)
@@ -51,7 +51,7 @@ public class StatusCodeValidData {
     }
 
     @Flaky
-    @Test(groups = { "SMOKE", "formfilters" })
+    @Test(groups = { "SMOKE", "formfilters", "validData" })
     @Feature("Проверить код состояния")
     @Story("TA-2А-4")
     @Severity(SeverityLevel.BLOCKER)
@@ -63,7 +63,7 @@ public class StatusCodeValidData {
     }
 
     @Flaky
-    @Test(groups = { "SMOKE", "saveForm" })
+    @Test(groups = { "SMOKE", "saveForm", "validData" })
     @Feature("Проверить код состояния")
     @Story("TA-2А-5")
     @Severity(SeverityLevel.BLOCKER)

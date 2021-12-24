@@ -1,4 +1,4 @@
-package steps;
+package steps.positive;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.ResponseSpecBuilder;

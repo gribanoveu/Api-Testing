@@ -8,9 +8,9 @@
             </run>
         </groups>
         <classes>
-            <class name="tests.StatusCodePositive" />
-            <class name="tests.ValidateHeadersPositive"/>
-            <class name="tests.ValidateResponsePositive"/>
+            <class name="tests.positive.StatusCodePositive" />
+            <class name="tests.positive.ValidateHeadersPositive"/>
+            <class name="tests.positive.ValidateResponsePositive"/>
         </classes>
     </test>
 </suite>

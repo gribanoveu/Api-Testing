@@ -1,21 +1,21 @@
-package tests;
+package tests.wrongData;
 
 import io.qameta.allure.*;
 import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import steps.StatusCodeWrongDataSteps;
+import steps.wrongData.StatusCodeWrongDataSteps;
 import util.LogListener;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
 @Listeners(LogListener.class)
-public class StatusCodeInvalidData {
+public class StatusCodeWrongData {
     StatusCodeWrongDataSteps statusCodeWrongDataSteps = new StatusCodeWrongDataSteps();
 
     @Flaky
-    @Test(groups = { "SMOKE", "dbconnection" })
+    @Test(groups = { "SMOKE", "dbconnection", "illegalData" })
     @Feature("Проверить код состояния")
     @Story("TA-3А-1")
     @Severity(SeverityLevel.BLOCKER)
@@ -27,7 +27,7 @@ public class StatusCodeInvalidData {
     }
 
     @Flaky
-    @Test(groups = { "SMOKE", "forms" })
+    @Test(groups = { "SMOKE", "forms", "illegalData" })
     @Feature("Проверить код состояния")
     @Story("TA-3А-2")
     @Severity(SeverityLevel.BLOCKER)
@@ -39,7 +39,7 @@ public class StatusCodeInvalidData {
     }
 
     @Flaky
-    @Test(groups = { "SMOKE", "form" })
+    @Test(groups = { "SMOKE", "form", "illegalData" })
     @Feature("Проверить код состояния")
     @Story("TA-3А-3")
     @Severity(SeverityLevel.BLOCKER)
@@ -51,7 +51,7 @@ public class StatusCodeInvalidData {
     }
 
     @Flaky
-    @Test(groups = { "SMOKE", "formfilters" })
+    @Test(groups = { "SMOKE", "formfilters", "illegalData" })
     @Feature("Проверить код состояния")
     @Story("TA-3А-4")
     @Severity(SeverityLevel.BLOCKER)
@@ -63,7 +63,7 @@ public class StatusCodeInvalidData {
     }
 
     @Flaky
-    @Test(groups = { "SMOKE", "saveForm" })
+    @Test(groups = { "SMOKE", "saveForm", "illegalData" })
     @Feature("Проверить код состояния")
     @Story("TA-3А-5")
     @Severity(SeverityLevel.BLOCKER)

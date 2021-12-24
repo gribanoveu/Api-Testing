@@ -1,4 +1,4 @@
-package tests;
+package tests.positive;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
@@ -6,7 +6,7 @@ import io.qameta.allure.Story;
 import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import steps.ValidateHeadersPositiveSteps;
+import steps.positive.ValidateHeadersPositiveSteps;
 import util.LogListener;
 import util.RestWrapper;
 
@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ValidateHeadersPositive extends RestWrapper {
     ValidateHeadersPositiveSteps validateHeadersSteps = new ValidateHeadersPositiveSteps();
 
-    @Test(groups = { "dbconnection", "headers" })
+    @Test(groups = { "dbconnection", "headers", "positive" })
     @Feature("Проверить заголовки")
     @Story("TA-1В-1")
     @Description("Заголовки ответа на GET запрос получения sessionID сответствуют ожидаемым")
@@ -26,7 +26,7 @@ public class ValidateHeadersPositive extends RestWrapper {
         assertThat(responseHeader).contains("application/json; charset=utf-8", "42");
     }
 
-    @Test(groups = { "forms", "headers" })
+    @Test(groups = { "forms", "headers", "positive" })
     @Feature("Проверить заголовки")
     @Story("TA-1В-2")
     @Description("Заголовки ответа на GET запрос списка форм сответствуют ожидаемым")
@@ -36,7 +36,7 @@ public class ValidateHeadersPositive extends RestWrapper {
         assertThat(responseHeader).contains("application/json; charset=utf-8");
     }
 
-    @Test(groups = { "form", "headers" })
+    @Test(groups = { "form", "headers", "positive" })
     @Feature("Проверить заголовки")
     @Story("TA-1В-3")
     @Description("Заголовки ответа на GET запрос формы по id сответствуют ожидаемым")
@@ -46,7 +46,7 @@ public class ValidateHeadersPositive extends RestWrapper {
         assertThat(responseHeader).contains("application/json; charset=utf-8");
     }
 
-    @Test(groups = { "formfilters", "headers" })
+    @Test(groups = { "formfilters", "headers", "positive" })
     @Feature("Проверить заголовки")
     @Story("TA-1В-4")
     @Description("Заголовки ответа на GET запрос фильтров для формы по id сответствуют ожидаемым")
@@ -56,7 +56,7 @@ public class ValidateHeadersPositive extends RestWrapper {
         assertThat(responseHeader).contains("application/json; charset=utf-8");
     }
 
-    @Test(groups = { "saveForm", "headers" })
+    @Test(groups = { "saveForm", "headers", "positive" })
     @Feature("Проверить заголовки")
     @Story("TA-1В-5")
     @Description("Заголовки ответа на POST запрос с JSON-обьектом сответствуют ожидаемым")

@@ -1,4 +1,4 @@
-package steps;
+package steps.validData;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
