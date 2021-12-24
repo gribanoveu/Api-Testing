@@ -4,54 +4,73 @@ import io.qameta.allure.*;
 import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import steps.StatusCodeWrongDataSteps;
 import util.LogListener;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
 @Listeners(LogListener.class)
 public class StatusCode {
+    StatusCodeWrongDataSteps statusCodeWrongDataSteps = new StatusCodeWrongDataSteps();
 
+    @Flaky
     @Test(groups = { "SMOKE", "dbconnection" })
     @Feature("Проверить код состояния")
     @Story("TA-3А-1")
     @Severity(SeverityLevel.BLOCKER)
-    @Description("")
+    @Description("Авторизация в системе с недопустимыми символами логина и пароля возвращает ошибку авторизации")
     public void dbConnectionInvalidLoginDataStatusCodeTest() {
-        // TODO
+        var statusCode = statusCodeWrongDataSteps.dbConnectionIllegalLoginData();
+        assertThat(statusCode).isEqualTo(400);
+        log.info("GET запрос /dbconnection возвращает статус код: " + statusCode);
     }
 
+    @Flaky
     @Test(groups = { "SMOKE", "forms" })
     @Feature("Проверить код состояния")
     @Story("TA-3А-2")
     @Severity(SeverityLevel.BLOCKER)
-    @Description("")
+    @Description("GET запрос списка форм с недопустимыми символами sessionID возвращает ошибку")
     public void getFormsInvalidSessionIdStatusCodeTest() {
-        // TODO
+        var statusCode = statusCodeWrongDataSteps.getFormsIllegalSessionId();
+        assertThat(statusCode).isEqualTo(400);
+        log.info("GET запрос /forms возвращает статус код: " + statusCode);
     }
 
+    @Flaky
     @Test(groups = { "SMOKE", "form" })
     @Feature("Проверить код состояния")
     @Story("TA-3А-3")
     @Severity(SeverityLevel.BLOCKER)
-    @Description("")
+    @Description("GET запрос формы с недопустимыми символами id возвращает ошибку")
     public void getFormByInvalidIdStatusCodeTest() {
-        // TODO
+        var statusCode = statusCodeWrongDataSteps.getFormByIllegalId();
+        assertThat(statusCode).isEqualTo(400);
+        log.info("GET запрос /forms возвращает статус код: " + statusCode);
     }
 
+    @Flaky
     @Test(groups = { "SMOKE", "formfilters" })
     @Feature("Проверить код состояния")
     @Story("TA-3А-4")
     @Severity(SeverityLevel.BLOCKER)
-    @Description("")
+    @Description("GET запрос фильтров для формы с недопустимыми символами id возвращает ошибку")
     public void getFormFiltersByInvalidIdStatusCodeTest() {
-        // TODO
+        var statusCode = statusCodeWrongDataSteps.getFormFiltersByIllegalId();
+        assertThat(statusCode).isEqualTo(400);
+        log.info("GET запрос /forms возвращает статус код: " + statusCode);
     }
 
+    @Flaky
     @Test(groups = { "SMOKE", "saveForm" })
     @Feature("Проверить код состояния")
     @Story("TA-3А-5")
     @Severity(SeverityLevel.BLOCKER)
-    @Description("")
+    @Description("POST запрос с недопустимыми символами в JSON-обьекте возвращает ошибку")
     public void postSaveFormInvalidJsonStatusCodeTest() {
-        // TODO
+        var statusCode = statusCodeWrongDataSteps.postSaveFormIllegalJson();
+        assertThat(statusCode).isEqualTo(400);
+        log.info("GET запрос /forms возвращает статус код: " + statusCode);
     }
 }
