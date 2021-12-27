@@ -13,19 +13,18 @@ public abstract class RestWrapper {
     protected static final String PASSWORD = getProjectProperties().apiPassword();
     protected static final String FORM_ID = getProjectProperties().formId();
 
-    protected static final RequestSpecification API_PATH = getReqSpec("/dbconnection");
-    protected static final RequestSpecification API_PATH_FORMS = getReqSpec("/forms");
-    protected static final RequestSpecification API_PATH_DBCONNECTION = getReqSpec("/dbconnection");
-    protected static final RequestSpecification API_PATH_FORM = getReqSpec("/form");
-    protected static final RequestSpecification API_PATH_FORM_FILTERS = getReqSpec("/formfilters");
-    protected static final RequestSpecification API_PATH_SAVE_FORM = getReqSpec("/saveForm");
+    protected static final RequestSpecification API_GET_FORMS = getReqSpec("/forms");
+    protected static final RequestSpecification API_GET_DBCONNECTION = getReqSpec("/dbconnection");
+    protected static final RequestSpecification API_GET_FORM = getReqSpec("/form");
+    protected static final RequestSpecification API_GET_FORM_FILTERS = getReqSpec("/formfilters");
+    protected static final RequestSpecification API_POST_SAVE_FORM = getReqSpec("/saveForm");
 
     protected static final String SESSION_ID = getDbConnectionAndGetSessionId();
 
     @Step("GET запрос '/dbconnection'. Вернуть sessionID")
     protected static String getDbConnectionAndGetSessionId() {
         return RestAssured.given().
-                spec(API_PATH).when().
+                spec(API_GET_DBCONNECTION).when().
                 get("?login=" + LOGIN + "&password=" + PASSWORD).
                 then().statusCode(200).
                 extract().path("sessionID");
@@ -43,4 +42,6 @@ public abstract class RestWrapper {
                 setContentType(ContentType.JSON).
                 build();
     }
+
+
 }

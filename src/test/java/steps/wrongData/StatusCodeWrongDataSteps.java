@@ -15,7 +15,7 @@ public class StatusCodeWrongDataSteps extends RestWrapper {
 
     public int dbConnectionIllegalLoginData() {
         return RestAssured.
-                given().spec(API_PATH_DBCONNECTION).log().uri().
+                given().spec(API_GET_DBCONNECTION).log().uri().
                 contentType(ContentType.JSON).
                 when().get("?login=" + GENERATED_WRONG_LOGIN_DATA + "&password=" + GENERATED_WRONG_LOGIN_DATA).
                 then().log().body().
@@ -23,7 +23,7 @@ public class StatusCodeWrongDataSteps extends RestWrapper {
     }
 
     public int getFormsIllegalSessionId() {
-        return RestAssured.given().spec(API_PATH_FORMS).log().uri().
+        return RestAssured.given().spec(API_GET_FORMS).log().uri().
                 contentType(ContentType.JSON).
                 header("sessionID", GENERATED_WRONG_SESSIONID).
                 when().get().
@@ -31,7 +31,7 @@ public class StatusCodeWrongDataSteps extends RestWrapper {
     }
 
     public int getFormByIllegalId() {
-        return RestAssured.given().spec(API_PATH_FORM).log().uri().
+        return RestAssured.given().spec(API_GET_FORM).log().uri().
                 contentType(ContentType.JSON).
                 header("sessionID", SESSION_ID).
                 when().get("?formid=" + GENERATED_WRONG_FORMID).
@@ -39,7 +39,7 @@ public class StatusCodeWrongDataSteps extends RestWrapper {
     }
 
     public int getFormFiltersByIllegalId() {
-        return RestAssured.given().spec(API_PATH_FORM_FILTERS).log().uri().
+        return RestAssured.given().spec(API_GET_FORM_FILTERS).log().uri().
                 contentType(ContentType.JSON).
                 header("sessionID", SESSION_ID).
                 when().get("?formid=" + GENERATED_WRONG_FORMID).
@@ -51,7 +51,7 @@ public class StatusCodeWrongDataSteps extends RestWrapper {
 
         RequestSpecification request = RestAssured.given().
                 contentType(ContentType.JSON).
-                spec(API_PATH_SAVE_FORM).log().uri().
+                spec(API_POST_SAVE_FORM).log().uri().
                 header("Content-Type", "application/json").
                 header("sessionID", SESSION_ID).
                 body(JSONFormChanges).log().body();

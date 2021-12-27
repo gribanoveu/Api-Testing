@@ -5,7 +5,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class StringUtils {
     private static final String ALL_NUMERICAL = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    private static final String ILLEGAL_CHARACTERS = "!@#№%^&*,?'|/}{+=";
+    private static final String ILLEGAL_CHARACTERS = "!@#№%^&*,'|/}{+=";
     private static Random random = new Random();
 
     public static String getRandomString(int stringLength) {

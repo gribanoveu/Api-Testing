@@ -18,7 +18,7 @@ public class ValidateResponsePositiveSteps extends RestWrapper {
     // Распаковка json по pojo обьекту
     public int dbConnectionReturnSessionId() {
         SessionIdPojo sessionId = RestAssured.
-                given().spec(API_PATH).
+                given().spec(API_GET_DBCONNECTION).
                 when().get("?login=" + LOGIN + "&password=" + PASSWORD).
                 then().statusCode(200).
                 extract().body().as(SessionIdPojo.class);
@@ -29,7 +29,7 @@ public class ValidateResponsePositiveSteps extends RestWrapper {
     // Валидация json по схеме
     public void getDbConnectionValidateSchema() {
         ValidatableResponse a =  RestAssured.given().
-                spec(API_PATH_DBCONNECTION).log().uri().
+                spec(API_GET_DBCONNECTION).log().uri().
                 when().get("?login=" + LOGIN + "&password=" + PASSWORD).
                 then().log().status().
                 assertThat().body(matchesJsonSchemaInClasspath("jsons/schemas/AUTH_SHEMA.json"));
@@ -39,7 +39,7 @@ public class ValidateResponsePositiveSteps extends RestWrapper {
     // сравнивание возвращаемого списка name с ожидаемым списком
     public void getFormsContainNames(List<String> names) {
          RestAssured.given().
-                 spec(API_PATH_FORMS).log().uri().
+                 spec(API_GET_FORMS).log().uri().
                  header("sessionID", SESSION_ID).
                  when().get("?formid=" + FORM_ID).
                  then().log().status().
@@ -52,7 +52,7 @@ public class ValidateResponsePositiveSteps extends RestWrapper {
 
     public void getFormByIdContainsFields() {
         ValidatableResponse a =  RestAssured.given().
-                spec(API_PATH_FORM).log().uri().
+                spec(API_GET_FORM).log().uri().
                 header("sessionID", SESSION_ID).
                 when().get("?formid=" + FORM_ID).
                 then().log().status().
@@ -62,7 +62,7 @@ public class ValidateResponsePositiveSteps extends RestWrapper {
 
     public void getFormFiltersContainsFields() {
         ValidatableResponse a =  RestAssured.given().
-                spec(API_PATH_FORM_FILTERS).log().uri().
+                spec(API_GET_FORM_FILTERS).log().uri().
                 header("sessionID", SESSION_ID).
                 when().get("?formid=" + FORM_ID).
                 then().log().status().

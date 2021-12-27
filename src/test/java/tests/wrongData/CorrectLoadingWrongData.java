@@ -7,11 +7,15 @@ import io.qameta.allure.Story;
 import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import steps.wrongData.CorrectLoadingWrongDataSteps;
 import util.LogListener;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @Slf4j
 @Listeners(LogListener.class)
 public class CorrectLoadingWrongData {
+    CorrectLoadingWrongDataSteps correctLoadingWrongDataSteps = new CorrectLoadingWrongDataSteps();
 
     @Flaky
     @Test(groups = { "dbconnection", "illegalData", "schema" })
@@ -19,16 +23,22 @@ public class CorrectLoadingWrongData {
     @Story("TA-3Б-1")
     @Description("Авторизация в системе с  недопустимыми символами логина и пароля возвращает JSON-обьект с сообщением об ошибке")
     public void getDbConnectionIllegalLoginValidateSchemaTest() {
-        // TODO
+        var expectedMessage = correctLoadingWrongDataSteps.getDbConnectionIllegalLoginValidateSchema();
+        assertThat(expectedMessage).as("Тело ответа не соответствует заданному").
+                contains("Bad Request. No login param"); // TODO добавить правильное сообщение об ошибке
+        log.info("Тело ответа содержит: " + expectedMessage);
     }
 
     @Flaky
-    @Test(groups = { "dbconnection", "illegalData", "schema" })
+    @Test(groups = { "forms", "illegalData", "schema" })
     @Feature("Проверить правильность загрузки")
     @Story("TA-3Б-2")
     @Description("GET запрос списка форм с недопустимыми символами sessionID возвращает  JSON-обьект с сообщением об ошибке")
     public void getDbConnectionIllegalSessionIdValidateSchemaTest() {
-        // TODO
+        var expectedMessage = correctLoadingWrongDataSteps.getFormsIllegalSessionIdValidateSchema();
+        assertThat(expectedMessage).as("Тело ответа не соответствует заданному").
+                contains("Bad Request. No login param"); // TODO добавить правильное сообщение об ошибке
+        log.info("Тело ответа содержит: " + expectedMessage);
     }
 
     @Flaky
@@ -37,7 +47,10 @@ public class CorrectLoadingWrongData {
     @Story("TA-3Б-3")
     @Description("GET запрос формы с недопустимыми символами id возвращает JSON-обьект с сообщением об ошибке")
     public void getFormByIllegalIdValidateSchemaTest() {
-        // TODO
+        var expectedMessage = correctLoadingWrongDataSteps.getFormByIllegalIdValidateSchema();
+        assertThat(expectedMessage).as("Тело ответа не соответствует заданному").
+                contains("Bad Request. No login param"); // TODO добавить правильное сообщение об ошибке
+        log.info("Тело ответа содержит: " + expectedMessage);
     }
 
     @Flaky
@@ -46,7 +59,10 @@ public class CorrectLoadingWrongData {
     @Story("TA-3Б-4")
     @Description("GET запрос фильтров для формы с недопустимыми символами id возвращает JSON-обьект с сообщением об ошибке")
     public void getFormFiltersIllegalFormIdValidateSchemaTest() {
-        // TODO
+        var expectedMessage = correctLoadingWrongDataSteps.getFormFiltersIllegalFormIdValidateSchema();
+        assertThat(expectedMessage).as("Тело ответа не соответствует заданному").
+                contains("Bad Request. No login param"); // TODO добавить правильное сообщение об ошибке
+        log.info("Тело ответа содержит: " + expectedMessage);
     }
 
     @Flaky
@@ -55,7 +71,10 @@ public class CorrectLoadingWrongData {
     @Story("TA-3Б-5")
     @Description("POST запрос с недопустимыми символами в JSON-обьекте с сообщением об ошибке")
     public void postSaveFormIllegalJsonValidateSchemaTest() {
-        // TODO
+        var expectedMessage = correctLoadingWrongDataSteps.postSaveFormIllegalJsonValidateSchema();
+        assertThat(expectedMessage).as("Тело ответа не соответствует заданному").
+                contains("Bad Request. No login param"); // TODO добавить правильное сообщение об ошибке
+        log.info("Тело ответа содержит: " + expectedMessage);
     }
 
     @Flaky
@@ -64,16 +83,9 @@ public class CorrectLoadingWrongData {
     @Story("TA-3Б-6")
     @Description("Авторизация в системе с строкой null в логине и пароле возвращает JSON-обьект с сообщением об ошибке")
     public void getDbConnectionNullInLoginValidateSchemaTest () {
-        // TODO
+        var expectedMessage = correctLoadingWrongDataSteps.getDbConnectionNullInLoginValidateSchema();
+        assertThat(expectedMessage).as("Тело ответа не соответствует заданному").
+                contains("Bad Request. No login param"); // TODO добавить правильное сообщение об ошибке
+        log.info("Тело ответа содержит: " + expectedMessage);
     }
-
-    @Flaky
-    @Test(groups = { "dbconnection", "illegalData", "schema" })
-    @Feature("Проверить правильность загрузки")
-    @Story("TA-3Б-7")
-    @Description("Отправка недопустимого запроса (PATCH, DELETE, PUT) возвращает сообщение об ошибке")
-    public void sendInvalidRequestValidateSchemaTest() {
-        // TODO
-    }
-
 }
